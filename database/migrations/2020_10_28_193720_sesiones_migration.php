@@ -14,7 +14,7 @@ class SesionesMigration extends Migration
     public function up()
     {
         Schema::create('sesiones', function (Blueprint $table) {
-            $table->integer('ses_id')->unique();
+            $table->increments('ses_id');
             $table->foreignId('ses_usu_rut');
             $table->string('ses_activo');
             $table->date('ses_fec');

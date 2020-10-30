@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sesion;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,8 @@ class PassportAuthController extends Controller
     }
 
     public function login(Request $request){
-
+        //variable temporal de prueba 
+        $contador = 0;
         //almaceno array con los datos obtenidos por post
         $data = [
             'usu_rut' => $request->rut,
@@ -46,10 +48,27 @@ class PassportAuthController extends Controller
         //de la base de datos
         //el metodo attempt retornara true si la autenticacion fue satisfactoria. Si no retornara false
         if(Auth::attempt($data)){
-            // se crea un token para un usuario determinado  utilizando el metodo createToken en la instancia del modelo User.
-            $token = Auth::user()->createToken('AuthAppLogin')->accessToken;
+
+            $sesion = Sesion::where('ses_usu_rut',$request->rut);
+
+            if(!$sesion){
+
+                //se devuelve un array con los errores encontrados y cabecera http 404
+                return response()->json(['errors'=>array(['code'=>404,'message'=>'Ud ya cuenta con una sesion activa. Favor, regularizar en oficina de Personal'])]);
+            }else{
+                $contador += 1;
+                // se crea un token para un usuario determinado  utilizando el metodo createToken en la instancia del modelo User.
+                $token = Auth::user()->createToken('AuthAppLogin')->accessToken;
+
+                Sesion::create([
+                    'ses_id' => $contador,
+                    'ses_usu_rut' => $request->rut  ,
+                    'ses_activo' => 'S'
+                ]);
             
-            return response()->json(['token'=> $token],200);
+                return response()->json(['token'=> $token],200);
+            }
+            
 
         }else{
             return response()->json(['error' => 'Acceso Denegado!'],401);
