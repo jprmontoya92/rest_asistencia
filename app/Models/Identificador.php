@@ -9,9 +9,9 @@ class Identificador extends Model
 {
     protected  $table = 'identificadores';
 
-    protected $primary_key = 'ident_id';
+    protected $primaryKey = 'ident_id';
 
-    protected $fillable = ['ident_activo','ident_pto_id'];
+    protected $fillable = ['ident_id','ident_activo','ident_pto_id'];
     
     
     public function ptoubicaciones(){

@@ -1,0 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+   // background-image: url('/image/amanecer.jpg');
+    color: grey;
+}
+
+footer{
+    color: grey;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+}
+
+.content{
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+img{
+    width: 200px;
+}

@@ -18,6 +18,7 @@ class SesionesMigration extends Migration
             $table->foreignId('ses_usu_rut');
             $table->string('ses_activo');
             $table->date('ses_fec');
+            $table->integer('ses_imei')->nullable();
             $table->foreign('ses_usu_rut')->references('usu_rut')->on('usuarios');
             $table->timestamps();
         });

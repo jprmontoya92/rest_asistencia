@@ -19,6 +19,5 @@ class DatabaseSeeder extends Seeder
         $this->call(EstablecimientoSeeder::class);
         $this->call(PtoUbicacionSeeder::class);
         $this->call(IndentificadorSeeder::class);
-        $this->call(UsuarioSeeder::class);
     }
 }

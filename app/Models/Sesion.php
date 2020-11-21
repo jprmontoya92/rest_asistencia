@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sesion extends Model
 {
     protected $table = 'sesiones';  
-    protected $primary_key = 'ses_id';
+    protected $primaryKey = 'ses_id';
 
     protected $fillable = ['ses_usu_rut,ses_fec','updated_at','created_at'];
 

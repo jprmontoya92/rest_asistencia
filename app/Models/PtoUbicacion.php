@@ -9,7 +9,7 @@ class PtoUbicacion extends Model
 {
     protected $table = 'pto_ubicaciones';
 
-    protected $primary_key = 'pto_id';
+    protected $primaryKey = 'pto_id';
 
     protected $fillable = ['pto_nombre','pto_descripcion','pto_lat','pto_lng','pto_esta_id'];
     

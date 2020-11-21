@@ -24,6 +24,7 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+    
 
     /**
      * Register the exception handling callbacks for the application.
@@ -34,4 +35,5 @@ class Handler extends ExceptionHandler
     {
         //
     }
+    
 }
