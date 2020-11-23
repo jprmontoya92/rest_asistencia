@@ -3,22 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Identificador;
+use Endroid\QrCode\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class IdentifierController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+    
+         if ($request->ajax()){
+            return response()->json([
+               ["id" => $this->qrcode()]
+            ]);
+        }
 
-         //cache se actualizara con nuevos registros cada 15 segundos 
-        //cacheIdentifier es la clave con el cual se almacenaran 
-        //los registros obteniddos de 
-        //el segundo parametro son los minutos
+        return view('pages.form-qr');
+    }
 
-        $identifier = Cache::remember('cacheIdentifier', 15/60, function () {
-           return Identificador::where('ident_activo','=','S')->inRandomOrder()->first();
-        });
+    private function qrcode(){
 
-        return view('pages.form-qr', compact('identifier'));
+        $qrCode = new QrCode(Identificador::where('ident_activo','=','S')->inRandomOrder()->first()->ident_id);
+        $qrCode->setSize(100);
+
+        $image = $qrCode->writeString();
+
+        return base64_encode($image);
     }
 }

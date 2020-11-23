@@ -10,7 +10,7 @@
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
-  --purple: #eae9eb;
+  --purple: #9561e2;
   --pink: #f66d9b;
   --red: #e3342f;
   --orange: #f6993f;
@@ -10904,24 +10904,25 @@ a.text-dark:focus {
 }
 
 body {
-  color: grey;
-}
-
-footer {
-  color: grey;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-}
-
-.content {
-  margin-top: 20px;
-  margin-left: 70px;
-  margin-right: 70px;
+  font-size: 25px;
+  background-color: white;
 }
 
 img {
-  width: 200px;
+  width: 300px;
+}
+
+.building {
+  display: inline-block;
+  font-size: 30px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  text-align: center;
 }
 

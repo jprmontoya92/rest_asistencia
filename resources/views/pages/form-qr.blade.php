@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+     <!--Font Awesome-->
+     <script src="https://kit.fontawesome.com/6e66d244ab.js" crossorigin="anonymous"></script>
+    </head>
     <title>Sistema de Asistencia</title>
-</head>
 <body>
-    <header class="container">
+    
+    <header class="container my-3">
         <img class="rounded mx-auto d-block" src="{{asset('image/logo-ssas.jpg')}}" alt="">
     </header>
-        {{(String)$identifier->ident_id}}
     <section class="container">
+        <i class="fas fa-building fa-2x mx-3 my-2"></i> <p class="building font-weight-bold">Direccion de Servicio - Primer Piso </p>
         <div class="content">
             <div class="row border">
                 <div class="col mt-2">
-                    <h3>Registra tu asistencia:</h3>
-                    <ul>
-                        <li>Inicia la App de Asistencia</li>
-                        <li>Selecciona el tipo de marcaje (Entrada/Salida)</li>
-                        <li>Escanea el código Qr </li>
-                    </ul>
+                    <div class="ml-3 p-3">
+                        <h3>Registra tu asistencia:</h3>
+                        <ul>
+                            <li>Inicia la App de Asistencia</li>
+                            <li>Selecciona el tipo de marcaje (Entrada/Salida)</li>
+                            <li>Escanea el código Qr </li>
+                        </ul>
+                    </div>
                   </div>
-                <div class="col mt-2">006034eb621a5099b90d6649c7f7f16823e3a6a0</div>
+                 <div class="col d-flex justify-content-center align-items-center">
+                    <div id="app">
+                        <qr-component></qr-component>
+                    </div>
+                 </div>
             </div>
         </div>
 

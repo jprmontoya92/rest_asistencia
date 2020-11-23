@@ -12,6 +12,9 @@ class Identificador extends Model
     protected $primaryKey = 'ident_id';
 
     protected $fillable = ['ident_id','ident_activo','ident_pto_id'];
+
+    //forzo el campo a string 
+    protected $casts = ['ident_id' => 'string'];
     
     
     public function ptoubicaciones(){

@@ -8,25 +8,22 @@
 @import '~bootstrap/scss/bootstrap';
 
 body{
-   // background-image: url('/image/amanecer.jpg');
-    color: grey;
+    font-size: 25px;
+    background-color: white;
 }
-
-footer{
-    color: grey;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-
-}
-
-.content{
-    margin-top: 20px;
-    margin-left: 70px;
-    margin-right: 70px;
-}
-
 img{
-    width: 200px;
+    width: 300px;
+}
+
+.building{
+    display: inline-block;
+    font-size: 30px;
+}
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  text-align: center;
 }
