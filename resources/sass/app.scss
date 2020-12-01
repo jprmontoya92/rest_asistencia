@@ -1,0 +1,29 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    font-size: 25px;
+    background-color: white;
+}
+img{
+    width: 300px;
+}
+
+.building{
+    display: inline-block;
+    font-size: 30px;
+}
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  text-align: center;
+}
