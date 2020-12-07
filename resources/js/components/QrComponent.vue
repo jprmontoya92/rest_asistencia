@@ -21,9 +21,8 @@ export default {
 
     methods: {
         start: function(){
-            var contador_s = 0;
             var id = setInterval(()=>{  
-                axios.get('http://1a951db75709.ngrok.io').then(response =>(this.qrs = response.data))
+                axios.get("{{route('/')}}").then(response =>(this.qrs = response.data))
             },this.duration)
         }
         
