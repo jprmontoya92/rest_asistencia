@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IdentifierController@index');
 
+
 Route::post('update','IdentifierController@update');

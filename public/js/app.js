@@ -1956,7 +1956,7 @@ __webpack_require__.r(__webpack_exports__);
       qrs: [{
         id: false
       }],
-      duration: 40000
+      duration: 15000
     };
   },
   mounted: function mounted() {},

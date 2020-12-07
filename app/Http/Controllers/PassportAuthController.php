@@ -51,6 +51,7 @@ class PassportAuthController extends Controller
     
             if(!Auth::attempt($credentials)){
                 return response()->json([
+                    'error' => true,
                     'message' => 'Unauthorized'
                 ],401);
             }
@@ -70,10 +71,12 @@ class PassportAuthController extends Controller
             $token->save();
     
             return response()->json([
+                'error' => false,
                 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
                 'expires_at' => Carbon::parse(
                     $tokenResult->token->expires_at)->toDateTimeString(),
+                'usu_rut' => $request->usu_rut
             ]);
     
         }

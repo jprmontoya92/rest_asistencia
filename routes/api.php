@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('eventos', 'EventController', ['only' => ['create','show',]]);
 
 
+
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'PassportAuthController@login');
   Route::post('signup', 'PassportAuthController@signup');
@@ -32,6 +33,7 @@ Route::group(['prefix' => 'auth'], function () {
   Route::group(['middleware' => 'auth:api'], function() {
       Route::get('logout', 'PassportAuthController@logout');
       // Aquí agrega tus rutas de la API. En mi caso (EN MI CASO, EL TUYO PUEDE VARIAR) he agregado una de productos
+      Route::post('eventos/consulta','EventController@index');
       Route::post('eventos/crear', 'EventController@create');
   });
 });

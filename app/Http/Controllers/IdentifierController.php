@@ -29,7 +29,7 @@ class IdentifierController extends Controller
             [
                 'reg_ident_id' =>$idQrCode,
                 'reg_fecha_ini' => Carbon::now(),
-                'reg_fecha_fin' => Carbon::now()->addSeconds(40)
+                'reg_fecha_fin' => Carbon::now()->addSeconds(15)
                 ]
                 )->save();
                 

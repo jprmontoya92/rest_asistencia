@@ -27,7 +27,7 @@
                         </ul>
                     </div>
                   </div>
-                 <div class="col d-flex justify-content-center align-items-center">
+                 <div class="col-auto d-flex justify-content-center align-items-center">
                     <div id="app">
                         <qr-component></qr-component>
                     </div>

@@ -16,8 +16,45 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $events_array = array();
+
+         $this->validate($request,[
+            'even_usu_rut' => 'required'
+        ]);
+        
+        $events = Evento::where('even_usu_rut','=',$request->even_usu_rut)->whereMonth('created_at', Carbon::now()->month)->get();
+        
+        if(count($events) !=0){
+
+            foreach($events as $row){
+                    
+                $even_mes = new Carbon($row->even_fecha);
+                $even_fecha = new Carbon($row->created_at);
+
+                $data = array(
+                    "even_tipo" => $row->even_tipo,
+                    "even_mes" => strtoupper($even_mes->monthName),
+                    "even_fecha" => $even_fecha->isoFormat('LLLL')
+                );
+                array_push($events_array,$data);
+            }
+
+            return response()->json(['eventos' => $events_array]);
+
+        }else{
+
+            return response()->json([
+                'eventos' =>[
+                    array(
+                    "even_tipo" => 'Sin marca',
+                    "even_mes" => strtoupper(Carbon::now()->monthName),
+                    "even_fecha" => 'Sin marca')
+                    ]]);
+        }
+
+        
        
     }
 
@@ -63,16 +100,19 @@ class EventController extends Controller
                 
                 $event->save();
         
-                return response()->json(['Message' =>'Evento Guardado',200]);
+                return response()->json(['error' => false,'message' =>'Evento Guardado',200]);
              
             }else{
-                return response()->json(['Message' =>'Codigo no vigente. Intentar nuevamente']);
+                return response()->json([
+                    'error' => true,
+                    'message' =>'Codigo no vigente. Intentar nuevamente'
+                    ]);
              }
 
 
         }else{
 
-            return response()->json(['message' => 'Codigo no encontrado o se encuentra desactivado'.$identifier],404);
+            return response()->json(['error' => true, 'message' => 'Codigo no valido'.$identifier],404);
         }
 
     
@@ -84,8 +124,10 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+        public function store($id)
     {
+
+     
     }
 
     /**
@@ -94,9 +136,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+  
+        
     }
 
     /**

@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             qrs: [{id:false}],
-            duration:40000,
+            duration:15000,
         }
     },
     mounted() {
@@ -23,7 +23,7 @@ export default {
         start: function(){
             var contador_s = 0;
             var id = setInterval(()=>{  
-                axios.get('http://127.0.0.1:8000').then(response =>(this.qrs = response.data))
+                axios.get('http://1a951db75709.ngrok.io').then(response =>(this.qrs = response.data))
             },this.duration)
         }
         
