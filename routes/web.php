@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IdentifierController@index');
+Route::get('/','HomeController@index');
+Route::get('getesta','HomeController@getEstablecimientos');
+Route::get('getubi','HomeController@getUbicaciones');
 
-
-Route::post('update','IdentifierController@update');
+Route::post('home-scan','IdentifierController@index')->name('homescan');
+Route::get('get-qr','IdentifierController@getCodigoScan')->name('getqr');

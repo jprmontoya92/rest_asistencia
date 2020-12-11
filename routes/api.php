@@ -20,8 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  */
 Route::resource('eventos', 'EventController', ['only' => ['create','show',]]);
 
-
-
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'PassportAuthController@login');
   Route::post('signup', 'PassportAuthController@signup');

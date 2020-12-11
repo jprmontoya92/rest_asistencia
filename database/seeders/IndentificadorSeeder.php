@@ -15,14 +15,14 @@ class IndentificadorSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i<200; $i++){
 
-            Identificador::create([
-                'ident_id' => bin2hex(openssl_random_pseudo_bytes(20)),
-                'ident_pto_id' => 1
-            ]);
 
-        }
-      
+        for($a = 1; $a<4; $a++ )
+            for($i = 0; $i<100; $i++){
+                Identificador::create([
+                    'ident_id' => bin2hex(openssl_random_pseudo_bytes(20)),
+                    'ident_pto_id' => $a
+                ]);
+            }
     }
 }

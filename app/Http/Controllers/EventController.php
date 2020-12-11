@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\Models\Identificador;
+use App\Models\PtoUbicacion;
 use App\Models\Reg_Identificador;
 use App\Models\User;
 use Carbon\Carbon;
@@ -29,11 +30,17 @@ class EventController extends Controller
         if(count($events) !=0){
 
             foreach($events as $row){
+
+                $pto  = Identificador::find($row->even_ident_id)->ptoubicacion;
+                $esta = $pto->establecimiento;
+               // $esta = $pto->establecimiento();
                     
                 $even_mes = new Carbon($row->even_fecha);
                 $even_fecha = new Carbon($row->created_at);
 
                 $data = array(
+                    "esta_nombre" => $esta->esta_nombre,
+                    "ubicacion" => $pto->pto_descripcion,
                     "even_tipo" => $row->even_tipo,
                     "even_mes" => strtoupper($even_mes->monthName),
                     "even_fecha" => $even_fecha->isoFormat('LLLL')

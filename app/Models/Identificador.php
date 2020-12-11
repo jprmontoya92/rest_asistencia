@@ -17,10 +17,10 @@ class Identificador extends Model
     protected $casts = ['ident_id' => 'string'];
     
     
-    public function ptoubicaciones(){
+    public function ptoubicacion(){
 
         //1 identificador pertence a una unica
-        return $this->belongsTo('App\Models\PtoUbicacion');
+        return $this->belongsTo('App\Models\PtoUbicacion', 'ident_pto_id');
     }
 
     public function eventos(){

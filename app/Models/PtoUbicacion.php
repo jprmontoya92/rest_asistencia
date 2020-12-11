@@ -26,7 +26,7 @@ class PtoUbicacion extends Model
 
         //1 avion pertenece a un fabricante
         // $this hace referencia al objeto que tengamos en ese momento de ptoubicacion
-        return $this->belongsTo('App\Models\Establecimiento');
+        return $this->belongsTo('App\Models\Establecimiento','pto_esta_id');
     }
 
     public function identificadores(){

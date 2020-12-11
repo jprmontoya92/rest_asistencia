@@ -13,7 +13,7 @@ class Establecimiento extends Model
 
     //Eloquent asume que cada tabla tiene  una clave primaria con una columna llamada id
     //Si este no fuera el caso entonces hay que indicar cual es nuestra clave primaria en la tabla
-    protected $primarykey = 'esta_cod';
+    protected $primaryKey = 'esta_id';
 
     /*
     $guarded permite especificar qué campos no queremos que se asignen al modelo. Es decir, se asignan todos excepto los especificados en este array.
@@ -51,7 +51,7 @@ class Establecimiento extends Model
         //1 establecimiento puede tener muchas ubicaciones
         //$this hace referencia al ojeto que tengamos en ese momento de Establecimiento
 
-        return $this->hasMany('App\Models\PtoUbicacion');
+        return $this->hasMany('App\Models\PtoUbicacion','pto_esta_id');
     }
 
 
